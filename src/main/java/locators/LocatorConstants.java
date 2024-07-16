@@ -1,4 +1,5 @@
 package locators;
+
 import org.openqa.selenium.By;
 
 public interface LocatorConstants {
@@ -8,5 +9,6 @@ public interface LocatorConstants {
     By hungarianTitle = By.xpath("//h2[text()='Utazástervezés']");
     By flagHun = By.xpath("//span[@title='magyar']");
     By flagEng = By.xpath("//span[@title='english']");
+    By hungarianBackArrow = By.xpath("//div[@title='Vissza']");
 
 }

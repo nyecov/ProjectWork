@@ -7,7 +7,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import utils.SharedContext;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.BkkPage;
-import org.junit.Assert;
+
 
 public class ThenSteps {
     private WebDriver driver;
@@ -19,17 +19,18 @@ public class ThenSteps {
         this.sharedContext = SharedContext.getInstance();
         this.driver = sharedContext.getDriver();
         this.wait = sharedContext.getWebDriverWait();
-        this.bkkPage= sharedContext.getPage();
+        this.bkkPage = sharedContext.getPage();
     }
 
     @Then("main panel title is labelled {string}")
-    public void titleShouldBe(@NotNull String panelTitle){
+    public void titleShouldBe(@NotNull String panelTitle) {
         if (panelTitle.equals("Utazástervezés")) {
             driver.navigate().refresh();
-            wait.until(ExpectedConditions.visibilityOf(bkkPage.HungarianTitle()));
+            wait.until(ExpectedConditions.textToBePresentInElement(bkkPage.HungarianTitle(), panelTitle));
+            //wait.until(ExpectedConditions.refreshed(ExpectedConditions.textToBePresentInElement(bkkPage.HungarianTitle(),panelTitle)));
         } else {
             driver.navigate().refresh();
-            wait.until(ExpectedConditions.visibilityOf(bkkPage.EnglishTitle()));
-        };
+            wait.until(ExpectedConditions.refreshed(ExpectedConditions.textToBePresentInElement(bkkPage.EnglishTitle(), panelTitle)));
+        }
     }
 }

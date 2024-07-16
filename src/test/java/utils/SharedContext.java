@@ -12,14 +12,13 @@ public class SharedContext {
     private BkkPage bkkPage;
 
 
-
     // Private constructor to prevent direct instantiation
     private SharedContext() {
         this.testSetup = new TestSetup();
         this.testSetup.setUp();
         this.driver = testSetup.getDriver();
         this.wait = testSetup.getWait();
-        this.bkkPage= new BkkPage(driver);
+        this.bkkPage = new BkkPage(driver);
 
     }
 
@@ -30,7 +29,8 @@ public class SharedContext {
         }
         return instance;
     }
-    public BkkPage getPage(){
+
+    public BkkPage getPage() {
         return this.bkkPage;
     }
 

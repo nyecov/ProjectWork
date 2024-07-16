@@ -9,11 +9,11 @@ public class WebElementStore {
 
     public WebElementStore(WebDriver driver) {
         this.driver = driver;
+
     }
 
     public WebElement findElement(By locator) {
         return driver.findElement(locator);
     }
 
-    // You can add more utility methods here as needed
 }
