@@ -6,7 +6,7 @@ Background:
 Given that the page is open
 and the language is set to English
 
-Scenario1:  Plan an immediate trip between "Margaret Island" and "Városliget"
+Scenario:  Plan an immediate trip between "Margaret Island" and "Városliget"
 When I fill out the "From" input with: "Margaret Island"
 and I fill out the "To" input with: "Népliget"
 and I select the "Arrive Time" option from the "arriveby" dropdown

@@ -7,7 +7,7 @@ Given that the page is open
 and the language is set to English
 
 
-Scenario1:  Echange the to and from landmarks with the reverse direction button
+Scenario:  Echange the to and from landmarks with the reverse direction button
 When I fill out the "From" input with: "Margaret Island"
 and I fill out the "To" input with: "Népliget"
 and I click on the "Reverse direction" button
