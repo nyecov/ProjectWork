@@ -1,7 +1,7 @@
 package stepdefinitions;
 
 import io.cucumber.java.en.Given;
-import org.openqa.selenium.By;
+import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import utils.SharedContext;
@@ -31,10 +31,27 @@ public class GivenSteps {
     }
     @Given("I accept privacy policy")
     public void acceptPolicy() {
-        wait.until(ExpectedConditions.visibilityOf(bkkPage.getAcceptButton()));
-        //wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//button[text()='Accept']"))));
-        driver.findElement(By.xpath("//button[text()='Accept']")).click();
-        wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.cssSelector(".logo-link"))));
+        wait.until(ExpectedConditions.visibilityOf(bkkPage.AcceptButton()));
+        bkkPage.AcceptButton().click();
+        wait.until(ExpectedConditions.elementToBeClickable(bkkPage.MainLogo()));
+    }
+
+    @Given("the selected language is in {string}")
+    public void checkSelectedLanguage(@NotNull String selectedLanguage) {
+        if (selectedLanguage.equals("English")) {
+            wait.until(ExpectedConditions.visibilityOf(bkkPage.EnglishTitle()));
+        } else {
+            wait.until(ExpectedConditions.visibilityOf(bkkPage.HungarianTitle()));
+        };
+    }
+
+    @Given("the {string} flag is visible")
+    public void checkFlagVisibility(@NotNull String neededFlag) {
+        if (neededFlag.equals("Hungarian")) {
+            wait.until(ExpectedConditions.visibilityOf(bkkPage.FlagHun()));
+        } else {
+            wait.until(ExpectedConditions.visibilityOf(bkkPage.FlagEng()));
+        };
     }
 
 }
