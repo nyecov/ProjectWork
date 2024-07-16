@@ -2,13 +2,15 @@ package utils;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import pages.bbkGoPage;
+import pages.BkkPage;
 
 public class SharedContext {
     private static SharedContext instance;
     private TestSetup testSetup;
     private WebDriver driver;
     private WebDriverWait wait;
+    private BkkPage bkkPage;
+
 
 
     // Private constructor to prevent direct instantiation
@@ -17,7 +19,8 @@ public class SharedContext {
         this.testSetup.setUp();
         this.driver = testSetup.getDriver();
         this.wait = testSetup.getWait();
-        this.bkkGoPage =new bbkGoPage(driver);
+        this.bkkPage= new BkkPage(driver);
+
     }
 
     // Public method to get the single instance of SharedContext
@@ -26,6 +29,9 @@ public class SharedContext {
             instance = new SharedContext();
         }
         return instance;
+    }
+    public BkkPage getPage(){
+        return this.bkkPage;
     }
 
     // Getter for WebDriver
@@ -40,8 +46,7 @@ public class SharedContext {
         }
     }
 
-    // You can add more shared resources or data as needed
-    // For example:
+
     private String baseUrl;
 
     public void setBaseUrl(String url) {
