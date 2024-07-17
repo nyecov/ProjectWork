@@ -10,6 +10,9 @@ public interface LocatorConstants {
     By flagHun = By.xpath("//span[@title='magyar']");
     By flagEng = By.xpath("//span[@title='english']");
     By hungarianBackArrow = By.xpath("//div[@title='Vissza']");
-    By fromInput=By.xpath("//input[@placeholder=\"From\"]");
-    By arryByDropdown=By.xpath("//select[contains(@class,\"planner-arriveby\")]");
+    By fromInput = By.xpath("//input[@placeholder=\"From\"]");
+    By arriveByDropdown = By.xpath("//select[contains(@class,\"planner-arriveby\")]");
+    By routeOptimizeDropdown = By.xpath("//select[contains(@class,'planner-optimize')]");
+    By planButton = By.xpath("//input[@type='submit' and @role='button']");
+    By resultsTitle =By.xpath("//h2[text()='Suggested itineraries']");
 }

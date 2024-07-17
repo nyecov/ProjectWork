@@ -2,12 +2,12 @@ package pages;
 
 import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.SharedContext;
 import utils.WebElementStore;
-import pages.AbstractPage;
 
 public class PlannerPage extends AbstractPage {
     private WebElementStore elementStore;
@@ -37,11 +37,29 @@ public class PlannerPage extends AbstractPage {
         checkTitle(panelTitle);
     }
 
-    public void selectFromDropDown(@NotNull String optionName, @NotNull String droDownName){
+    public void selectFromDropDown(@NotNull String optionName, @NotNull String droDownName) {
+        WebElement dropdown = null;
+        if (droDownName.equals("arriveby")) {
+            dropdown = ArriveByDropdown();
+        } else {
+            dropdown = RouteOptimizeDropdown();
+        }
+        wait.until(ExpectedConditions.elementToBeClickable(dropdown));
+        dropdown.click();
+        clickOnText(optionName);
+        dropdown.click();
+    }
 
+    public void clickOnPlanButton() {
+        PlanButton().click();
+    }
+
+    public void checkResults(){
+        waitForResults();
     }
 
     public AbstractPage getAbstractPage() {
         return abstractPage;
+
     }
 }

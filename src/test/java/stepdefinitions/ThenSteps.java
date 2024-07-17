@@ -31,4 +31,9 @@ public class ThenSteps {
     public void titleShouldBe(@NotNull String panelTitle) {
         plannerPage.titleShouldBe(panelTitle);
     }
+
+    @Then("the results panel is visible")
+    public void checkResults(){
+        plannerPage.checkResults();
+    }
 }

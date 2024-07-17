@@ -11,7 +11,7 @@ Feature: Plan an immediate trip
       When I fill out the "From" input with: "Margaret Island"
       And I fill out the "To" input with: "Népliget"
       And I select the "Start now" option from the "arriveby" dropdown
-      And I click on the "Plan" button
-      Then the "Suggested itineraries" panel is visible
+      And I click on the Plan button
+      Then the results panel is visible
 
 

@@ -42,7 +42,8 @@ public class AbstractPage implements LocatorConstants {
             wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(HungarianTitle())));
         }
     }
-    protected void waitForTitle(){
+
+    protected void waitForTitle() {
         wait.until(ExpectedConditions.titleContains("BudapestGO"));
     }
 
@@ -50,7 +51,7 @@ public class AbstractPage implements LocatorConstants {
         wait.until(ExpectedConditions.visibilityOf(element));
     }
 
-    protected void waitForClickAbleStatus(WebElement element){
+    protected void waitForClickAbleStatus(WebElement element) {
         wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 
@@ -85,10 +86,28 @@ public class AbstractPage implements LocatorConstants {
         actions.sendKeys(input, Keys.TAB).build().perform();
     }
 
-    protected void clickOnArryveByDropdown(){
-        ArriveByDropdown().click();
+    protected void clickOnText(String text) {
+        String selector = String.format("//option [contains(text(),'%s')]", text);
+        WebElement element = driver.findElement(By.xpath(selector));
+        wait.until(ExpectedConditions.visibilityOf(element));
+        element.click();
     }
 
+    protected void waitForResults() {
+        waitFor(3);
+        wait.until(ExpectedConditions.textToBePresentInElement(ResultsTitle(),"Suggested"));
+        WebElement panel=driver.findElement(By.xpath("//div[@id='panel-inner']"));
+        wait.until(ExpectedConditions.visibilityOf(panel));
+        wait.until(ExpectedConditions.visibilityOf(ResultsTitle()));
+    }
+
+    protected void waitFor(int seconds){
+        try {
+            Thread.sleep(seconds*1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 
     protected WebElement AcceptPrivacyButton() {
         return elementStore.findElement(acceptPrivacyButton);
@@ -122,8 +141,20 @@ public class AbstractPage implements LocatorConstants {
         return elementStore.findElement(fromInput);
     }
 
-    protected WebElement ArriveByDropdown(){
-        return elementStore.findElement(arryByDropdown);
+    protected WebElement ArriveByDropdown() {
+        return elementStore.findElement(arriveByDropdown);
+    }
+
+    protected WebElement RouteOptimizeDropdown() {
+        return elementStore.findElement(routeOptimizeDropdown);
+    }
+
+    protected WebElement PlanButton() {
+        return elementStore.findElement(planButton);
+    }
+
+    protected WebElement ResultsTitle() {
+        return elementStore.findElement(resultsTitle);
     }
 
 
