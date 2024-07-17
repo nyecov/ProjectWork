@@ -3,7 +3,6 @@ package stepdefinitions;
 import io.cucumber.java.en.When;
 import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import utils.SharedContext;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.BkkPage;
