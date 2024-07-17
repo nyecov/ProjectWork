@@ -2,15 +2,24 @@ package pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import utils.SharedContext;
 import utils.WebElementStore;
 import locators.LocatorConstants;
+
 
 
 public class BkkPage implements LocatorConstants {
     private WebElementStore elementStore;
 
-    public BkkPage(WebDriver driver) {
-        this.elementStore = new WebElementStore(driver);
+    public BkkPage() {
+        this.elementStore = new WebElementStore(SharedContext.getInstance().getDriver());
+    }
+
+    public void openPage(){
+        String baseUrl = SharedContext.getInstance().getBaseUrl();
+        SharedContext.getInstance().getDriver().get(baseUrl);
+        SharedContext.getInstance().getWebDriverWait().until(ExpectedConditions.titleContains("BudapestGO"));
     }
 
     public WebElement AcceptButton() {

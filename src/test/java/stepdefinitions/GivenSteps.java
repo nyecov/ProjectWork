@@ -19,15 +19,13 @@ public class GivenSteps {
         this.sharedContext = SharedContext.getInstance();
         this.driver = sharedContext.getDriver();
         this.wait = sharedContext.getWebDriverWait();
-        this.bkkPage= sharedContext.getPage();
+        this.bkkPage = new BkkPage();
 
     }
 
     @Given("that the page is open")
     public void openPage() {
-        String baseUrl = sharedContext.getBaseUrl();
-        driver.get(baseUrl);
-        wait.until(ExpectedConditions.titleContains("BudapestGO"));
+        bkkPage.openPage();
     }
     @Given("I accept privacy policy")
     public void acceptPolicy() {
@@ -38,6 +36,8 @@ public class GivenSteps {
 
     @Given("the selected language is in {string}")
     public void checkSelectedLanguage(@NotNull String selectedLanguage) {
+        driver.navigate().refresh();
+        wait.until(ExpectedConditions.titleContains("BudapestGO"));
         if (selectedLanguage.equals("English")) {
             wait.until(ExpectedConditions.visibilityOf(bkkPage.EnglishTitle()));
         } else {

@@ -11,7 +11,7 @@ public class Hooks {
     public void setUp() {
         // Initialize SharedContext
         this.sharedContext = SharedContext.getInstance();
-
+        sharedContext.setupTest();
         sharedContext.setBaseUrl("https://go.bkk.hu/");
     }
 

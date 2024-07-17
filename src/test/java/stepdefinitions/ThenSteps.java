@@ -19,7 +19,7 @@ public class ThenSteps {
         this.sharedContext = SharedContext.getInstance();
         this.driver = sharedContext.getDriver();
         this.wait = sharedContext.getWebDriverWait();
-        this.bkkPage = sharedContext.getPage();
+        this.bkkPage = new BkkPage();
     }
 
     @Then("main panel title is labelled {string}")

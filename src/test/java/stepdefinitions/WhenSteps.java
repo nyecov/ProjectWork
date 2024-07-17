@@ -17,7 +17,7 @@ public class WhenSteps {
         this.sharedContext = SharedContext.getInstance();
         this.driver = sharedContext.getDriver();
         this.wait = sharedContext.getWebDriverWait();
-        this.bkkPage = sharedContext.getPage();
+        this.bkkPage = new BkkPage();
     }
 
     @When("I select the {string} language")
