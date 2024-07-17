@@ -30,12 +30,17 @@ public class WhenSteps {
 
     @When("I select the {string} option from the {string} dropdown")
     public void selectTimeMode(@NotNull String optionName, @NotNull String droDownName) {
-        plannerPage.selectFromDropDown(optionName,droDownName);
+        plannerPage.selectFromDropDown(optionName, droDownName);
     }
 
     @When("I click on the Plan button")
-    public void routePlan(){
+    public void routePlan() {
         plannerPage.clickOnPlanButton();
+    }
+
+    @When("I click on the Reverse direction button")
+    public void clickOnReverse() {
+        plannerPage.routeReverse();
     }
 
 

@@ -58,8 +58,12 @@ public class PlannerPage extends AbstractPage {
         waitForResults();
     }
 
+    public void routeReverse(){
+        wait.until(ExpectedConditions.elementToBeClickable(ReverseButton()));
+        ReverseButton().click();
+    }
+
     public AbstractPage getAbstractPage() {
         return abstractPage;
-
     }
 }

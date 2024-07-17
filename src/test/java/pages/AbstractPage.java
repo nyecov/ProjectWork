@@ -157,5 +157,9 @@ public class AbstractPage implements LocatorConstants {
         return elementStore.findElement(resultsTitle);
     }
 
+    protected WebElement ReverseButton(){
+        return elementStore.findElement(reverseButton);
+    }
+
 
 }

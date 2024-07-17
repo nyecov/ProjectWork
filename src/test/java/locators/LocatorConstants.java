@@ -15,4 +15,5 @@ public interface LocatorConstants {
     By routeOptimizeDropdown = By.xpath("//select[contains(@class,'planner-optimize')]");
     By planButton = By.xpath("//input[@type='submit' and @role='button']");
     By resultsTitle =By.xpath("//h2[text()='Suggested itineraries']");
+    By reverseButton =By.xpath("//span[@role='button' and contains(@class,'planner-reverse')]");
 }
