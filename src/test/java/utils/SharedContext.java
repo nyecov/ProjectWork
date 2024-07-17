@@ -10,6 +10,7 @@ public class SharedContext {
     private WebDriverWait wait;
 
 
+
     // Private constructor to prevent direct instantiation
     private SharedContext() {
         this.webDriverHandler = new WebDriverHandler();

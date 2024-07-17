@@ -7,7 +7,7 @@ Feature: change UI language
       And I accept privacy policy
 
     Scenario:  Change the language to Hungarian
-      Given the selected language is"English"
+      Given the selected language is "English"
       And the "Hungarian" flag is visible
       When I select the "Hungarian" language
       Then main panel title is labelled "Utazástervezés"
