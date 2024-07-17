@@ -14,7 +14,7 @@ public class WebDriverHandler {
     public void setUp() {
         System.setProperty("webdriver.chrome.driver", "C:\\ChromeDriver\\chromedriver.exe");
         driver = new ChromeDriver();
-        wait = new WebDriverWait(driver, Duration.ofSeconds(180));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(200));
     }
 
     public void tearDown() {

@@ -20,12 +20,8 @@ public class WhenSteps {
         this.bkkPage = new BkkPage();
     }
 
-    @When("I select the {string} language")
+    @When("placehodler")
     public void selectLanguage(@NotNull String wantedLanguage) {
-        if (wantedLanguage.equals("Hungarian")) {
-            bkkPage.FlagHun().click();
-        } else {
-            bkkPage.FlagHun().click();
-        }
+        bkkPage.selectLanguage(wantedLanguage);
     }
 }

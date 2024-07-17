@@ -1,6 +1,7 @@
 package stepdefinitions;
 
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.When;
 import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -29,29 +30,22 @@ public class GivenSteps {
     }
     @Given("I accept privacy policy")
     public void acceptPolicy() {
-        wait.until(ExpectedConditions.visibilityOf(bkkPage.AcceptButton()));
-        bkkPage.AcceptButton().click();
-        wait.until(ExpectedConditions.elementToBeClickable(bkkPage.MainLogo()));
+    bkkPage.acceptPolicy();
     }
 
     @Given("the selected language is in {string}")
     public void checkSelectedLanguage(@NotNull String selectedLanguage) {
-        driver.navigate().refresh();
-        wait.until(ExpectedConditions.titleContains("BudapestGO"));
-        if (selectedLanguage.equals("English")) {
-            wait.until(ExpectedConditions.visibilityOf(bkkPage.EnglishTitle()));
-        } else {
-            wait.until(ExpectedConditions.visibilityOf(bkkPage.HungarianTitle()));
-        };
+        bkkPage.checkSelectedLanguage(selectedLanguage);
     }
 
     @Given("the {string} flag is visible")
     public void checkFlagVisibility(@NotNull String neededFlag) {
-        if (neededFlag.equals("Hungarian")) {
-            wait.until(ExpectedConditions.visibilityOf(bkkPage.FlagHun()));
-        } else {
-            wait.until(ExpectedConditions.visibilityOf(bkkPage.FlagEng()));
-        };
+        bkkPage.checkFlagVisibility(neededFlag);
+    }
+
+    @Given("I select the {string} language")
+    public void selectLanguage(@NotNull String wantedLanguage) {
+       bkkPage.selectLanguage(wantedLanguage);
     }
 
 }

@@ -24,14 +24,6 @@ public class ThenSteps {
 
     @Then("main panel title is labelled {string}")
     public void titleShouldBe(@NotNull String panelTitle) {
-        driver.navigate().refresh();
-        wait.until(ExpectedConditions.titleContains("BudapestGO"));
-        if (panelTitle.equals("Utazástervezés")) {
-            wait.until(ExpectedConditions.textToBePresentInElement(bkkPage.HungarianTitle(), panelTitle));
-            //wait.until(ExpectedConditions.refreshed(ExpectedConditions.textToBePresentInElement(bkkPage.HungarianTitle(),panelTitle)));
-        } else {
-            driver.navigate().refresh();
-            wait.until(ExpectedConditions.refreshed(ExpectedConditions.textToBePresentInElement(bkkPage.EnglishTitle(), panelTitle)));
-        }
+        bkkPage.titleShouldBe(panelTitle);
     }
 }

@@ -13,7 +13,10 @@ Feature: change UI language
       Then main panel title is labelled "Utazástervezés"
 
     Scenario:  Change the language to English
-      Given the selected language is in "Hungarian"
+      Given the selected language is in "English"
+      And the "Hungarian" flag is visible
+      And I select the "Hungarian" language
+      And the selected language is in "Hungarian"
       And the "English" flag is visible
       When I select the "English" language
       Then main panel title is labelled "Trip Planner"
