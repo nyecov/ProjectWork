@@ -20,8 +20,10 @@ public class WhenSteps {
         this.bkkPage = new BkkPage();
     }
 
-    @When("placehodler")
-    public void selectLanguage(@NotNull String wantedLanguage) {
-        bkkPage.selectLanguage(wantedLanguage);
+    @When("I fill out the {string} input with: {string}")
+    public void fillInputWith(@NotNull String inputName,@NotNull String inputValue) {
+        bkkPage.fillInputWith(inputName,inputValue);
     }
+
+
 }

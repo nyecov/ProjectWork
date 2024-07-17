@@ -33,7 +33,7 @@ public class GivenSteps {
     bkkPage.acceptPolicy();
     }
 
-    @Given("the selected language is in {string}")
+    @Given("the selected language is {string}")
     public void checkSelectedLanguage(@NotNull String selectedLanguage) {
         bkkPage.checkSelectedLanguage(selectedLanguage);
     }
@@ -47,5 +47,6 @@ public class GivenSteps {
     public void selectLanguage(@NotNull String wantedLanguage) {
        bkkPage.selectLanguage(wantedLanguage);
     }
+
 
 }

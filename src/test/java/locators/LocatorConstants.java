@@ -10,5 +10,5 @@ public interface LocatorConstants {
     By flagHun = By.xpath("//span[@title='magyar']");
     By flagEng = By.xpath("//span[@title='english']");
     By hungarianBackArrow = By.xpath("//div[@title='Vissza']");
-
+    By fromInput=By.xpath("//input[@placeholder=\"From\"]");
 }

@@ -1,6 +1,7 @@
 package pages;
 
 import org.jetbrains.annotations.NotNull;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -8,6 +9,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.SharedContext;
 import utils.WebElementStore;
 import locators.LocatorConstants;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.Keys;
 
 
 public class BkkPage implements LocatorConstants {
@@ -15,6 +18,7 @@ public class BkkPage implements LocatorConstants {
     String baseUrl = SharedContext.getInstance().getBaseUrl();
     WebDriver driver = SharedContext.getInstance().getDriver();
     WebDriverWait wait = SharedContext.getInstance().getWebDriverWait();
+    Actions actions = new Actions(driver);
 
     public BkkPage() {
         this.elementStore = new WebElementStore(SharedContext.getInstance().getDriver());
@@ -66,33 +70,47 @@ public class BkkPage implements LocatorConstants {
         }
     }
 
-        public WebElement AcceptButton() {
-            return elementStore.findElement(acceptButton);
-        }
-
-        public WebElement MainLogo() {
-            return elementStore.findElement(mainLogo);
-        }
-
-        public WebElement FlagHun() {
-            return elementStore.findElement(flagHun);
-        }
-
-        public WebElement HungarianTitle() {
-            return elementStore.findElement(hungarianTitle);
-        }
-
-        public WebElement FlagEng() {
-            return elementStore.findElement(flagEng);
-        }
-
-        public WebElement EnglishTitle() {
-            return elementStore.findElement(englishTitle);
-        }
-
-        public WebElement HungarianBackArrow () {
-            return elementStore.findElement(hungarianBackArrow);
-        }
-
-
+    public void fillInputWith(@NotNull String inputName, @NotNull String inputValue) {
+        String selector = String.format("//input[@placeholder='%s']", inputName);
+        WebElement input = driver.findElement(By.xpath(selector));
+        wait.until(ExpectedConditions.elementToBeClickable(input));
+        input.click();
+        input.clear();
+        input.sendKeys(inputValue);
+        actions.sendKeys(input,Keys.TAB).build().perform();
     }
+
+    private WebElement AcceptButton() {
+        return elementStore.findElement(acceptButton);
+    }
+
+    private WebElement MainLogo() {
+        return elementStore.findElement(mainLogo);
+    }
+
+    private WebElement FlagHun() {
+        return elementStore.findElement(flagHun);
+    }
+
+    private WebElement HungarianTitle() {
+        return elementStore.findElement(hungarianTitle);
+    }
+
+    private WebElement FlagEng() {
+        return elementStore.findElement(flagEng);
+    }
+
+    private WebElement EnglishTitle() {
+        return elementStore.findElement(englishTitle);
+    }
+
+    private WebElement HungarianBackArrow() {
+        return elementStore.findElement(hungarianBackArrow);
+    }
+
+    private WebElement FromInput() {
+        return elementStore.findElement(fromInput);
+    }
+
+
+}
