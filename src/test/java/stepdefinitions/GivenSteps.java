@@ -26,8 +26,8 @@ public class GivenSteps {
         this.wait = sharedContext.getWebDriverWait();
         this.abstractPage = new AbstractPage();
         this.plannerPage = new PlannerPage();
-        this.headerPage= new HeaderPage();
-        this.privacyPolicyPage=new PrivacyPolicyPage();
+        this.headerPage = new HeaderPage();
+        this.privacyPolicyPage = new PrivacyPolicyPage();
 
     }
 
@@ -35,6 +35,7 @@ public class GivenSteps {
     public void openPage() {
         abstractPage.openPage();
     }
+
     @Given("I accept privacy policy")
     public void acceptPolicy() {
         privacyPolicyPage.acceptPrivacyPolicy();
@@ -52,7 +53,7 @@ public class GivenSteps {
 
     @Given("I select the {string} language")
     public void selectLanguage(@NotNull String wantedLanguage) {
-       headerPage.selectDisplayLanguage(wantedLanguage);
+        headerPage.selectDisplayLanguage(wantedLanguage);
     }
 
 
